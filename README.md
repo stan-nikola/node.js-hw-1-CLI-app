@@ -4,19 +4,19 @@
 
 ## Screenshots:
 
-## List Contacts
+- List Contacts
 
 [Link](https://monosnap.com/file/9uv7zILNuTgCawIaqdUdVYRYbPcCWP)
 
-## Contact By Id
+- Contact By Id
 
 [Link](https://monosnap.com/file/efbNSK84aBgBEgncl6SnraROVL5x70)
 
-## Add Contact
+- Add Contact
 
 [Link](https://monosnap.com/file/7AGSHIH9CVTNVH3ycJ9zmEV5SUMRtO)
 
-## Remove Contact
+- Remove Contact
 
 [Link](https://monosnap.com/file/di0S0eAlvSFcifRtetbkcjtJtWosjp)
 
