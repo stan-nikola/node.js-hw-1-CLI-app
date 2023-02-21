@@ -5,9 +5,7 @@ const { uid } = require("uid");
 
 async function listContacts() {
   try {
-    const data = await fs.readFile(contactsPath, "utf8");
-
-    return JSON.parse(data);
+    return JSON.parse(await fs.readFile(contactsPath, "utf8"));
   } catch (error) {
     console.log(error);
   }
