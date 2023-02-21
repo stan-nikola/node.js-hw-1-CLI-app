@@ -15,9 +15,8 @@ async function getContactById(id) {
   try {
     const contacts = await listContacts();
 
-    if (contacts.every((contact) => contact.id !== id.toString())) {
+    if (contacts.every((contact) => contact.id !== id.toString()))
       return console.log(`Contact with id:${id} was not found!`);
-    }
 
     const contactById = contacts.find(
       (contact) => contact.id === id.toString()
@@ -36,9 +35,8 @@ async function removeContact(id) {
       (contact) => contact.id !== id.toString()
     );
 
-    // if (contacts.length === filteredContacts.length) {
+    // if (contacts.length === filteredContacts.length)
     //   return console.log(`Contact with id:${id} was not found!`);
-    // }
 
     if (contacts.every((contact) => contact.id !== id.toString()))
       return console.log(`Contact with id:${id} was not found!`);
