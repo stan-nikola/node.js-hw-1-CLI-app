@@ -9,31 +9,42 @@ async function listContacts() {
     if (data) {
       return JSON.parse(data);
     }
-    return null;
   } catch (error) {
     console.log(error);
   }
 }
 
-async function getContactById(contactId) {
+async function getContactById(id) {
   try {
     const contacts = await listContacts();
+
+    if (contacts.every((contact) => contact.id !== id.toString())) {
+      return console.log(`Contact with id:${id} was not found!`);
+    }
+
     const contactById = contacts.find(
-      (contact) => contact.id === contactId.toString()
+      (contact) => contact.id === id.toString()
     );
 
-    return contactById;
+    return console.log("contactById: ", contactById);
   } catch (error) {
     console.log(error);
   }
 }
 
-async function removeContact(contactId) {
+async function removeContact(id) {
   try {
     const contacts = await listContacts();
     const filteredContacts = contacts.filter(
-      (contact) => contact.id !== contactId.toString()
+      (contact) => contact.id !== id.toString()
     );
+
+    // if (contacts.length === filteredContacts.length) {
+    //   return console.log(`Contact with id:${id} was not found!`);
+    // }
+
+    if (contacts.every((contact) => contact.id !== id.toString()))
+      return console.log(`Contact with id:${id} was not found!`);
 
     await fs.writeFile(
       contactsPath,
@@ -42,7 +53,7 @@ async function removeContact(contactId) {
         if (err) console.log(err);
       }
     );
-    console.log(`Contact with id:${contactId} has been removed!`);
+    console.log(`Contact with id:${id} has been removed!`);
   } catch (error) {
     console.log(error);
   }
@@ -57,6 +68,7 @@ async function addContact(name, email, phone) {
       email,
       phone,
     };
+
     const newContactArr = [...contacts, newContact];
 
     fs.writeFile(contactsPath, JSON.stringify(newContactArr), (err) => {
